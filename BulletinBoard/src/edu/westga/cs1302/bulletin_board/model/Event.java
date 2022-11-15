@@ -9,13 +9,13 @@ import java.time.LocalDate;
  */
 public class Event {
 
-	private static final String DASH = "-";
+	private static final String COLON = " : ";
 	private String title;
 	private String description;
 	private LocalDate date;
 	private TypeOfEvent type;
 
-	private enum TypeOfEvent {
+	public enum TypeOfEvent {
 		Musical, Theatrical, Political;
 	}
 
@@ -45,7 +45,7 @@ public class Event {
 			throw new IllegalArgumentException("Type must be Musical, Theatrical or Political");
 		}
 
-		if (date != null) {
+		if (date == null) {
 			throw new IllegalArgumentException("Date must not be null");
 		}
 
@@ -63,7 +63,7 @@ public class Event {
 	 * @return the event summary
 	 */
 	public String getEventSummary() {
-		String eventSummary = this.getTitle() + DASH + this.getDescription() + DASH + this.getDate() + DASH
+		String eventSummary = this.getTitle() + COLON + this.getDescription() + COLON + this.getDate() + COLON
 				+ this.getType();
 		return eventSummary;
 	}
