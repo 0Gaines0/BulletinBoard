@@ -9,6 +9,7 @@ import java.time.LocalDate;
  */
 public class Event {
 
+	private static final String DASH = "-";
 	private String title;
 	private String description;
 	private LocalDate date;
@@ -53,6 +54,18 @@ public class Event {
 		this.date = date;
 		this.type = type;
 
+	}
+	
+	
+	/**
+	 * Gets the event summary.
+	 *
+	 * @return the event summary
+	 */
+	public String getEventSummary() {
+		String eventSummary = this.getTitle() + DASH + this.getDescription() + DASH + this.getDate() + DASH
+				+ this.getType();
+		return eventSummary;
 	}
 
 	@Override
