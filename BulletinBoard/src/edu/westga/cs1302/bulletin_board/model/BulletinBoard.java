@@ -2,16 +2,9 @@ package edu.westga.cs1302.bulletin_board.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-
 import edu.westga.cs1302.bulletin_board.model.Event.TypeOfEvent;
 
 /**
@@ -50,7 +43,50 @@ public class BulletinBoard {
 		}
 		this.eventMap.put(newEvent.getTitle(), newEvent);
 	}
-	
+
+	/**
+	 * Gets the sorted event of list.
+	 *
+	 * @param eventComparator the event comparator
+	 * @param typeFilter      the type filter
+	 * @return the sorted event of list
+	 */
+	public ArrayList<Event> getSortedEventOfList(Comparator<Event> eventComparator, TypeOfEvent typeFilter) {
+		if (this.eventMap.isEmpty()) {
+			throw new IllegalArgumentException("eventMap can not be empty");
+		}
+		ArrayList<Event> sortedList = new ArrayList<Event>();
+		sortedList.addAll(this.eventMap.values());
+
+		if (eventComparator == null && typeFilter == null) {
+			return sortedList;
+		} else if (eventComparator == null && typeFilter != null) {
+			ArrayList<Event> filteredList = new ArrayList<Event>();
+			for (Event currEvent : sortedList) {
+				if (currEvent.getType().equals(typeFilter)) {
+					filteredList.add(currEvent);
+				}
+			}
+			return filteredList;
+		} else if (eventComparator != null && typeFilter == null) {
+			ArrayList<Event> comparatorList = new ArrayList<Event>();
+			for (Event currEvent : sortedList) {
+				comparatorList.add(currEvent);
+			}
+			comparatorList.sort(eventComparator);
+			return comparatorList;
+		} else {
+			ArrayList<Event> comparatorFilteredList = new ArrayList<Event>();
+			for (Event currEvent : sortedList) {
+				if (currEvent.getType().equals(typeFilter)) {
+					comparatorFilteredList.add(currEvent);
+				}
+			}
+			comparatorFilteredList.sort(eventComparator);
+			return comparatorFilteredList;
+		}
+	}
+
 	/**
 	 * Removes the specific event.
 	 *
