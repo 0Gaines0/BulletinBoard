@@ -17,7 +17,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#030200" height="39.0" layoutX="-5.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#003808" height="330.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <TextField fx:id="eventTitleTextField" layoutX="10.0" layoutY="45.0" prefHeight="10.0" prefWidth="102.0" promptText="event title" />
-      <TextField fx:id="eventDescriptionTextField" layoutX="122.0" layoutY="44.0" prefHeight="26.0" prefWidth="109.0" promptText="event description" />
+      <TextField fx:id="eventDescriptionTextField" layoutX="122.0" layoutY="45.0" prefHeight="26.0" prefWidth="109.0" promptText="event description" />
       <DatePicker fx:id="eventDatePicker" layoutX="10.0" layoutY="96.0" prefHeight="26.0" prefWidth="102.0" promptText="event date" />
       <ComboBox fx:id="eventTypeComboBox" layoutX="121.0" layoutY="96.0" prefHeight="26.0" prefWidth="110.0" promptText="event type" />
       <Button fx:id="addButton" layoutX="251.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="Add" />
@@ -33,6 +33,7 @@
             </ContextMenu>
          </contextMenu>
       </ListView>
+      <Button fx:id="sortButton" layoutX="61.0" layoutY="277.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="56.0" text="Sort" />
       <Button fx:id="removeButton" layoutX="59.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleRemoveEvent" text="Remove" />
       <Label layoutY="-6.0" prefHeight="0.0" prefWidth="245.0" text="Bulletin Board" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -60,7 +61,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="sortButton" layoutX="61.0" layoutY="277.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="56.0" text="Sort" />
       <Label fx:id="titleFormatLabel" layoutX="10.0" layoutY="75.0" prefHeight="18.0" prefWidth="150.0" text="Title can not be empty" textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
