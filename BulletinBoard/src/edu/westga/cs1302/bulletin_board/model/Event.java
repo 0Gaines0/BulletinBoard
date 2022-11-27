@@ -2,6 +2,8 @@ package edu.westga.cs1302.bulletin_board.model;
 
 import java.time.LocalDate;
 
+import edu.westga.cs1302.bulletin_board.resources.UI;
+
 /**
  * The Class Event.
  * 
@@ -18,6 +20,16 @@ public class Event {
 	public enum TypeOfEvent {
 		Musical, Theatrical, Political;
 	}
+	
+	/**
+	 * Instantiates a new event.
+	 */
+	public Event() {
+		this.title = "default";
+		this.description = "description";
+		this.date = LocalDate.now();
+		this.type = null;
+	}
 
 	/**
 	 * Instantiates a new event.
@@ -29,24 +41,20 @@ public class Event {
 	 */
 	public Event(String title, String description, LocalDate date, TypeOfEvent type) {
 		if (title == null) {
-			throw new IllegalArgumentException("Title must not be null");
+			throw new IllegalArgumentException(UI.NULL_TITLE);
 		}
-		if (description == null) {
-			throw new IllegalArgumentException("Description must not be null");
+		if (type == null) {
+			throw new IllegalArgumentException("Type of event must be a valid type");
 		}
-		if (title.isEmpty()) {
-			throw new IllegalArgumentException("Title must not be empty");
-		}
-		if (description.isEmpty()) {
-			throw new IllegalArgumentException("Description must not be empty");
+		if (title.length() == 0) {
+			throw new IllegalArgumentException(UI.EMPTY_TITLE);
 		}
 		if (!(type.equals(TypeOfEvent.Musical) || type.equals(TypeOfEvent.Theatrical)
 				|| type.equals(TypeOfEvent.Political))) {
 			throw new IllegalArgumentException("Type must be Musical, Theatrical or Political");
 		}
-
 		if (date == null) {
-			throw new IllegalArgumentException("Date must not be null");
+			throw new IllegalArgumentException(UI.DATE_NULL);
 		}
 
 		this.title = title;
@@ -70,7 +78,7 @@ public class Event {
 
 	@Override
 	public String toString() {
-		return "Event [title=" + this.title + "]";
+		return  this.title;
 	}
 
 	/**

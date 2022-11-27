@@ -26,20 +26,6 @@ public class TestEvent {
 	}
 	
 	@Test
-	public void testDescriptionIsNull() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			new Event("Show", null, LocalDate.of(2022, 11, 15), Enum.valueOf(Event.TypeOfEvent.class, "Musical"));
-		});
-	}
-	
-	@Test
-	public void testDescriptionIsEmpty() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			new Event("Show", "", LocalDate.of(2022, 11, 15), Enum.valueOf(Event.TypeOfEvent.class, "Musical"));
-		});
-	}
-	
-	@Test
 	public void testTypeOfEventIsNotDefinedType() {
 		assertThrows(IllegalArgumentException.class, () -> {
 			new Event("Show", "King Lear", LocalDate.of(2022, 11, 15), Enum.valueOf(Event.TypeOfEvent.class, "Play"));

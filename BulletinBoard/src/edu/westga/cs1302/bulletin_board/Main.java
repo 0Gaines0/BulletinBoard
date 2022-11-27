@@ -14,8 +14,9 @@ import javafx.stage.Stage;
  * @version Fall 2022
  */
 public class Main extends Application {
-	private static final String WINDOW_TITLE = "Bulletin Board";
-	private static final String GUI_RESOURCE = "view/MainWindow.fxml";
+	public static final String WINDOW_TITLE = "Bulletin Board";
+	public static final String GUI_RESOURCE = "view/MainWindow.fxml";
+	public static final String DETAIL_WINDOW = "../view/DetailWindow.fxml";
 
 	/**
 	 * JavaFX entry point.

@@ -6,7 +6,6 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
-import java.util.Comparator;
 import java.util.List;
 
 import org.junit.Test;
@@ -160,7 +159,7 @@ public class TestBulletinBoard {
 		List<Event> eventList = board.getSortedEventOfList(null, null);
 		
 		assertEquals(3, eventList.size());
-		assertEquals("[Event [title=Terrifer 2], Event [title=President Biden Speech], Event [title=King Lear]]",eventList.toString());
+		assertEquals("[Terrifer 2, President Biden Speech, King Lear]",eventList.toString());
 		assertEquals("Terrifer 2",eventList.get(0).getTitle());
 		assertEquals("President Biden Speech",eventList.get(1).getTitle());
 		assertEquals("King Lear",eventList.get(2).getTitle());
@@ -184,7 +183,7 @@ public class TestBulletinBoard {
 		List<Event> eventList = board.getSortedEventOfList(null, TypeOfEvent.Theatrical);
 		
 		assertEquals(1,eventList.size());
-		assertEquals("[Event [title=Terrifer 2]]", eventList.toString());
+		assertEquals("[Terrifer 2]", eventList.toString());
 		assertEquals("Terrifer 2", eventList.get(0).getTitle());
 	}
 	
@@ -205,7 +204,7 @@ public class TestBulletinBoard {
 		
 		List<Event> eventList = board.getSortedEventOfList(new EarliestFirstEventComparator(), null);
 		
-		assertEquals("[Event [title=President Biden Speech], Event [title=Terrifer 2], Event [title=King Lear]]", eventList.toString());
+		assertEquals("[President Biden Speech, Terrifer 2, King Lear]", eventList.toString());
 		assertEquals("President Biden Speech", eventList.get(0).getTitle());
 		assertEquals("Terrifer 2", eventList.get(1).getTitle());
 		assertEquals("King Lear", eventList.get(2).getTitle());
@@ -229,7 +228,7 @@ public class TestBulletinBoard {
 		
 		List<Event> eventList = board.getSortedEventOfList(new LastestFirstEventComparator(), null);
 		
-		assertEquals("[Event [title=King Lear], Event [title=Terrifer 2], Event [title=President Biden Speech]]", eventList.toString());
+		assertEquals("[King Lear, Terrifer 2, President Biden Speech]", eventList.toString());
 		assertEquals("President Biden Speech", eventList.get(2).getTitle());
 		assertEquals("Terrifer 2", eventList.get(1).getTitle());
 		assertEquals("King Lear", eventList.get(0).getTitle());
@@ -252,7 +251,7 @@ public class TestBulletinBoard {
 		
 		List<Event> eventList = board.getSortedEventOfList(new EarliestFirstEventComparator(), TypeOfEvent.Theatrical);
 		
-		assertEquals("[Event [title=Terrifer 2], Event [title=King Lear]]", eventList.toString());
+		assertEquals("[Terrifer 2, King Lear]", eventList.toString());
 		assertEquals("Terrifer 2", eventList.get(0).getTitle());
 		assertEquals("King Lear", eventList.get(1).getTitle());
 		
@@ -275,7 +274,7 @@ public class TestBulletinBoard {
 		
 		List<Event> eventList = board.getSortedEventOfList(new LastestFirstEventComparator(), TypeOfEvent.Theatrical);
 		
-		assertEquals("[Event [title=King Lear], Event [title=Terrifer 2]]", eventList.toString());
+		assertEquals("[King Lear, Terrifer 2]", eventList.toString());
 		assertEquals("Terrifer 2", eventList.get(1).getTitle());
 		assertEquals("King Lear", eventList.get(0).getTitle());
 		

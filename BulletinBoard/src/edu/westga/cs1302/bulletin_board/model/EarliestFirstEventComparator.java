@@ -1,9 +1,6 @@
 package edu.westga.cs1302.bulletin_board.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 /**
  * The Class EarliestFirstEventComparator.

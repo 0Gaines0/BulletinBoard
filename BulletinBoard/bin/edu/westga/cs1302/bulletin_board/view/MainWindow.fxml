@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="366.0" minWidth="400.0" prefHeight="366.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.bulletin_board.view.MainWindow">
+<AnchorPane fx:id="guiPane" minHeight="366.0" minWidth="400.0" prefHeight="366.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.bulletin_board.view.MainWindow">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#030200" height="39.0" layoutX="-5.0" stroke="BLACK" strokeType="INSIDE" width="406.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#003808" height="330.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
@@ -20,20 +20,20 @@
       <TextField fx:id="eventDescriptionTextField" layoutX="122.0" layoutY="44.0" prefHeight="26.0" prefWidth="109.0" promptText="event description" />
       <DatePicker fx:id="eventDatePicker" layoutX="10.0" layoutY="96.0" prefHeight="26.0" prefWidth="102.0" promptText="event date" />
       <ComboBox fx:id="eventTypeComboBox" layoutX="121.0" layoutY="96.0" prefHeight="26.0" prefWidth="110.0" promptText="event type" />
-      <Button layoutX="251.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="Add" />
-      <ComboBox fx:id="listOrderComboBox" layoutX="14.0" layoutY="171.0" prefWidth="150.0" promptText="Event List Order" />
-      <ComboBox fx:id="listTypeComboBox" layoutX="14.0" layoutY="226.0" prefWidth="150.0" promptText="Event List Type" />
-      <ListView layoutX="228.0" layoutY="145.0" prefHeight="214.0" prefWidth="166.0">
+      <Button fx:id="addButton" layoutX="251.0" layoutY="83.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="Add" />
+      <ComboBox fx:id="listOrderComboBox" layoutX="14.0" layoutY="171.0" prefWidth="150.0" promptText="No List Order" />
+      <ComboBox fx:id="listTypeComboBox" layoutX="14.0" layoutY="226.0" prefWidth="150.0" promptText="No List Type" />
+      <ListView fx:id="eventListProperty" layoutX="228.0" layoutY="145.0" prefHeight="214.0" prefWidth="166.0">
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" text="Display Detail" />
-                  <MenuItem mnemonicParsing="false" text="Remove Event" />
+                  <MenuItem fx:id="displayListViewMenu" mnemonicParsing="false" text="Display Detail" />
+                  <MenuItem fx:id="removeListViewContextMenu" mnemonicParsing="false" onAction="#handleRemoveSelectedListViewItem" text="Remove Event" />
               </items>
             </ContextMenu>
          </contextMenu>
       </ListView>
-      <Button layoutX="35.0" layoutY="304.0" mnemonicParsing="false" text="Remove" />
+      <Button fx:id="removeButton" layoutX="59.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleRemoveEvent" text="Remove" />
       <Label layoutY="-6.0" prefHeight="0.0" prefWidth="245.0" text="Bulletin Board" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Comic Sans MS" size="30.0" />
@@ -50,7 +50,18 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="9.0" layoutY="275.0" prefHeight="18.0" prefWidth="196.0" text="Remove selected event from list !" textFill="WHITE" underline="true">
+      <Label layoutX="9.0" layoutY="314.0" prefHeight="18.0" prefWidth="196.0" text="Remove selected event from list !" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="259.0" prefHeight="18.0" prefWidth="205.0" text="Sort List by order and type !" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="sortButton" layoutX="61.0" layoutY="277.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="56.0" text="Sort" />
+      <Label fx:id="titleFormatLabel" layoutX="10.0" layoutY="75.0" prefHeight="18.0" prefWidth="150.0" text="Title can not be empty" textFill="RED" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

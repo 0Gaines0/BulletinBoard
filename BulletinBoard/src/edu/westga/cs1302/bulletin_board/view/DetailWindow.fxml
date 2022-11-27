@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane minHeight="227.0" minWidth="297.0" prefHeight="227.0" prefWidth="297.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="edu.westga.cs1302.bulletin_board.view.DetailWindow">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#003808" height="227.0" stroke="BLACK" strokeType="INSIDE" width="297.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="39.0" stroke="BLACK" strokeType="INSIDE" width="291.0" />
+      <Label layoutY="-8.0" prefHeight="0.0" prefWidth="245.0" text="Bulletin Board" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="24.0" prefHeight="18.0" prefWidth="147.0" text="Display Event Window" textFill="WHITE" underline="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="displayEventTextArea" layoutX="23.0" layoutY="62.0" prefHeight="158.0" prefWidth="246.0" />
+   </children>
+</AnchorPane>
